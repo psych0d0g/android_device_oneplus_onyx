@@ -18,12 +18,12 @@
 -include device/oppo/msm8974-common/BoardConfigCommon.mk
 
 # SELinux
-#-include device/qcom/sepolicy/sepolicy.mk
+-include device/qcom/sepolicy/sepolicy.mk
 
 LOCAL_PATH := device/oneplus/onyx
 
 # Include path
-#TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
