@@ -20,7 +20,7 @@
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
-LOCAL_PATH := device/oneplus/onyx
+LOCAL_PATH := device/oppo/onyx
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
@@ -180,4 +180,4 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
--include vendor/oneplus/onyx/BoardConfigVendor.mk
+-include vendor/oppo/onyx/BoardConfigVendor.mk
