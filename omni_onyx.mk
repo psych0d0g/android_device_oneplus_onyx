@@ -33,3 +33,6 @@ PRODUCT_BRAND := OnePlus
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_MODEL := E1003
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=onyx TARGET_DEVICE=onyx BUILD_FINGERPRINT="oneplus/onyx/onyx:5.1.1/JRO03C/N7100XXALJ3:user/release-keys" PRIVATE_BUILD_DESC="onyx-user 5.1.1 JRO03C N7100XXALJ3 release-keys"
+
+# Inherit from proprietary blobs
+$(call inherit-product, vendor/oneplus/onyx/onyx-vendor.mk)
