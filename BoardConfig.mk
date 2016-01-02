@@ -18,7 +18,7 @@
 -include device/oppo/common/BoardConfigCommon.mk
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+#-include device/qcom/sepolicy/sepolicy.mk
 
 PLATFORM_PATH := device/oneplus/onyx
 
