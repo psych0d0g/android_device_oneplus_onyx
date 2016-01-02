@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oneplus/onyx
+LOCAL_PATH := device/oppo/onyx
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -323,7 +323,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.libsensor1=w
 
 # Call the proprietary setup
-$(call inherit-product-if-exists, vendor/oneplus/onyx/onyx-vendor.mk)
+$(call inherit-product-if-exists, vendor/oppo/onyx/onyx-vendor.mk)
 
 ifneq ($(QCPATH),)
 $(call inherit-product-if-exists, $(QCPATH)/prebuilt_HY11/target/product/msm8974/prebuilt.mk)
