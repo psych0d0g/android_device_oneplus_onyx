@@ -18,7 +18,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter onyx,$(TARGET_DEVICE)),)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
