@@ -14,12 +14,10 @@
 # limitations under the License.
 #
 
-ifneq ($(QCPATH),)
-$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
-endif
+LOCAL_PATH := device/oneplus/onyx
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-1080p
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 #Keylayouts
 PRODUCT_COPY_FILES += \
@@ -27,7 +25,8 @@ PRODUCT_COPY_FILES += \
 
 # Kernel
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/dt.img:dt.img
+	$(LOCAL_PATH)/dt.img:dt.img \
+	$(LOCAL_PATH)/configs/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Config scripts
 PRODUCT_PACKAGES += \
@@ -267,13 +266,7 @@ PRODUCT_PACKAGES += \
 
 # Keyhandler
 PRODUCT_PACKAGES += \
-    ConfigPanel \
-    com.cyanogenmod.keyhandler
-
-PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
-
-# never dexopt the keyhandler
-$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
+    ConfigPanel 
 
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -337,4 +330,4 @@ $(call inherit-product-if-exists, $(QCPATH)/prebuilt_HY11/target/product/msm8974
 endif
 
 # Inherit from oppo-common
-$(call inherit-product, device/oppo/common/common.mk)
+$(call inherit-product, device/oppo/msm8974-common/common.mk)
