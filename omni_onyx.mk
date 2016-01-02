@@ -24,7 +24,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
-$(call inherit-product, device/oneplus/onyx/device.mk)
+$(call inherit-product, device/oppo/onyx/device.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := omni_onyx
@@ -35,4 +35,4 @@ PRODUCT_MODEL := E1003
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=onyx TARGET_DEVICE=onyx BUILD_FINGERPRINT="oneplus/onyx/onyx:5.1.1/JRO03C/N7100XXALJ3:user/release-keys" PRIVATE_BUILD_DESC="onyx-user 5.1.1 JRO03C N7100XXALJ3 release-keys"
 
 # Inherit from proprietary blobs
-$(call inherit-product, vendor/oneplus/onyx/onyx-vendor.mk)
+$(call inherit-product, vendor/oppo/onyx/onyx-vendor.mk)
