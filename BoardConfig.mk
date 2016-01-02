@@ -15,15 +15,15 @@
 #
 
 # inherit from Oppo common
--include device/oppo/common/BoardConfigCommon.mk
+-include device/oppo/msm8974-common/BoardConfigCommon.mk
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+#-include device/qcom/sepolicy/sepolicy.mk
 
-PLATFORM_PATH := device/oneplus/onyx
+LOCAL_PATH := device/oneplus/onyx
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
+#TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
@@ -53,16 +53,11 @@ TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := opx_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
 
-# Enable DIAG on debug builds
-ifneq ($(TARGET_BUILD_VARIANT),user)
-TARGET_KERNEL_ADDITIONAL_CONFIG:= cyanogenmod_debug_config
-endif
-
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := ONE
+TARGET_OTA_ASSERT_DEVICE := onyx
 
 # Audio
 AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
@@ -86,12 +81,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-
-# CM Hardware
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    device/oneplus/onyx/cmhw \
-    hardware/cyanogen/cmhw
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -190,10 +179,5 @@ TARGET_WCNSS_MAC_PREFIX          := e8bba8
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
-
-# inherit from the proprietary version
-ifneq ($(QCPATH),)
--include $(QCPATH)/common/msm8974/BoardConfigVendor.mk
-endif
 
 -include vendor/oneplus/onyx/BoardConfigVendor.mk
