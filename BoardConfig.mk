@@ -92,7 +92,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Encryption
-TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := false
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
