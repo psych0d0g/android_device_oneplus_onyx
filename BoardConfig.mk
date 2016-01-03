@@ -54,7 +54,7 @@ TARGET_KERNEL_CONFIG := opx_defconfig
 TARGET_KERNEL_SOURCE := kernel/oppo/msm8974
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+#BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := onyx
