@@ -159,7 +159,7 @@ TARGET_RIL_VARIANT := caf
 TARGET_LDPRELOAD := libNimsWrap.so
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
+#TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 # RPC
 TARGET_NO_RPC := true
