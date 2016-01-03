@@ -26,43 +26,46 @@
    OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 #include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
 
-#include "init_msm.h"
+static void process_cmdline(char *name, int for_emulator)
+{
+    char *value = strchr(name, '=');
+    int name_len = strlen(name);
+    int rf_version;
 
-void init_msm_properties(unsigned long msm_id,unsigned long msm_ver, char *board_type) {
-    char device[PROP_VALUE_MAX];
-    char rf_version[PROP_VALUE_MAX];
-    int rc;
+    if (value == 0) return;
+    *value++ = 0;
+    if (name_len == 0) return;
 
-    UNUSED(msm_id);
-    UNUSED(msm_ver);
-    UNUSED(board_type);
-
-    rc = property_get("ro.cm.device", device);
-    if (!rc || !ISMATCH(device, "onyx"))
-        return;
-
-    property_get("ro.boot.rf_version", rf_version);
-
-    if (strstr(rf_version, "101")) {
-        /* Chinese */
-        property_set("ro.product.model", "ONE E1001");
-        property_set("ro.rf_version", "TDD_FDD_Ch_All");
-} else if (strstr(rf_version, "102")) {
-        /* Asia/Europe */
-        property_set("ro.product.model", "ONE E1003");
-        property_set("ro.rf_version", "TDD_FDD_Eu");
-    } else if (strstr(rf_version, "103")){
-        /* America */
-        property_set("ro.product.model", "ONE E1005");
-        property_set("ro.rf_version", "TDD_FDD_Am");
+    if (!strcmp(name,"ro.boot.rf_version")) {
+        rf_version = atoi(value);
+        if(rf_version == 101) {
+            // Chinese
+            property_set("ro.product.model", "ONE E1001");
+            property_set("ro.rf_version", "TDD_FDD_Ch_All");
+        } else if(rf_version == 102) {
+            /* Asia/Europe */
+            property_set("ro.product.model", "ONE E1003");
+            property_set("ro.rf_version", "TDD_FDD_Eu");
+        } else if(rf_version == 102) {
+            /* America */
+            property_set("ro.product.model", "ONE E1005");
+            property_set("ro.rf_version", "TDD_FDD_Am");
+        }
     }
 }
 
+void vendor_load_properties()
+{
+    import_kernel_cmdline(0,process_cmdline)
+}
