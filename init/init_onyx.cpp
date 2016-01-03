@@ -67,5 +67,5 @@ static void process_cmdline(char *name, int for_emulator)
 
 void vendor_load_properties()
 {
-    import_kernel_cmdline(0,process_cmdline)
+    import_kernel_cmdline(0,process_cmdline);
 }
